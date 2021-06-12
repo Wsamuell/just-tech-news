@@ -123,6 +123,16 @@ router.put('/:id', (req, res) => {
         });
 });
 
+router.post('/logout', (req, res) => {
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    } else {
+        res.status(404).end();
+    }
+});
+
 // DELETE /api/users/1
 router.delete('/:id', (req, res) => {
     User.destroy({
