@@ -4,6 +4,7 @@
 {{#if loggedIn}}
 <form class="comment-form">
   <div>
+    <input type="hidden" name="post-id" value="{{post.id}}"/>
     <textarea name="comment-body"></textarea>
   </div>
 
